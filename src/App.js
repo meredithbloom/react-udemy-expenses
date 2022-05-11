@@ -2,7 +2,7 @@ import React from 'react'
 import ExpenseItem from './components/Expenses/ExpenseItem'
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
-
+import ExpensesFilter from './components/Expenses/ExpensesFilter';
 
 const App = () => {
   const expenses = [
@@ -12,9 +12,16 @@ const App = () => {
     { id: 'e4', title: 'Medicine', amount: 100, date: new Date(2022, 5, 6) }
   ]
 
+  const addExpenseHandler = (expense) => {
+    console.log('in app.js')
+    console.log(expense)
+  }
+
+
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses expenses={expenses}/>
     </div>
   )
